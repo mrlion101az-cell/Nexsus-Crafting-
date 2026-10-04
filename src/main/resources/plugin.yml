@@ -1,0 +1,22 @@
+name: NexusCrafting
+version: ${project.version}
+main: com.nexuscraft.nexuscrafting.NexusCraftingPlugin
+api-version: '1.21'
+author: RealSociety
+description: "A massive overhaul of hand-crafting and recipes, untouched since the crafting grid itself was introduced. A per-player crafting-mastery skill grows from real crafting-table and smithing-table hand-crafts and feeds three real outcome rolls: a chance of a bonus item, a real (tunable-to-zero) risk of a wasted craft, and a chance an ingredient saves itself. A hidden tier of recipes -- real vanilla results reached through a different, secret ingredient combination -- stays off a player's recipe book until mastery actually earns it. High-rolled gear carries a real, baked-in quality tier with a real attribute bonus. The stonecutter, loom, and cartography table each get a mastery-scaled chance at a bonus duplicate. Deliberately leaves tool durability and repair alone -- that's NexusForge's own mechanic."
+
+commands:
+  nexuscrafting:
+    description: Check your crafting mastery, review secret-recipe progress, or reload config.
+    usage: /nexuscrafting <skill|recipes|reload>
+    aliases: [crafting, craft]
+    permission: nexuscrafting.use
+    permission-message: "§cYou don't have permission to do that."
+
+permissions:
+  nexuscrafting.admin:
+    description: Reload NexusCrafting's config.
+    default: op
+  nexuscrafting.use:
+    description: Check crafting mastery and secret-recipe progress.
+    default: true

@@ -1,0 +1,54 @@
+# NexusCrafting configuration.
+# Shared, tunable numbers only -- the secret-recipe catalog (which hidden recipes exist, their
+# real ingredients, their unlock levels) is fixed, game-balance data in code
+# (SecretRecipeCatalog), not here.
+
+enabled: true
+
+skill:
+  # Real level cap for crafting mastery.
+  max-level: 50
+  # XP required for level n follows xp-base * n^1.5, rounded.
+  xp-base: 6.0
+  # Flat XP per real, resolved crafting-table hand-craft actually taken, multiplied by how many
+  # items were actually taken (a critical craft's bonus item earns a little extra XP with it).
+  xp-per-craft: 4
+  # Same, for a real smithing-table result taken.
+  xp-per-smith: 10
+  # Same, for a real bonus-roll take at the stonecutter/loom/cartography table.
+  xp-per-station-use: 3
+
+outcome-rolls:
+  # Real odds (0.0-1.0) of a CRITICAL craft -- a bonus item -- at skill level 1.
+  base-critical-chance: 0.02
+  # Added per skill level above 1.
+  critical-chance-per-level: 0.004
+  # Real odds of a BOTCHED craft -- the result comes out empty, ingredients spent for nothing --
+  # at skill level 1. Set this and the line below to 0 to remove the botch risk entirely.
+  base-botch-chance: 0.12
+  # Subtracted per skill level above 1 (the risk shrinks as mastery grows, but by design never
+  # quite reaches zero on its own).
+  botch-chance-reduction-per-level: 0.0022
+  # Real odds a random, already-placed ingredient keeps one extra unit instead of being consumed,
+  # at skill level 1. Zero by default -- this is a pure bonus mastery earns, not a starting perk.
+  base-cost-refund-chance: 0.0
+  # Added per skill level above 1.
+  cost-refund-chance-per-level: 0.003
+
+quality:
+  # Crafting-mastery levels at which each gear quality tier starts being rollable at all.
+  unlock-level-fine: 5
+  unlock-level-superior: 20
+  unlock-level-masterwork: 40
+  # Flat, additive attribute-modifier bonus (ADD_SCALAR) baked onto gear at each tier -- e.g. a
+  # Fine sword's real Attribute.ATTACK_DAMAGE gets a flat +3% on top of vanilla's own value.
+  attribute-bonus-fine: 0.03
+  attribute-bonus-superior: 0.07
+  attribute-bonus-masterwork: 0.14
+
+stations:
+  # Real odds (0.0-1.0) of a bonus duplicate at the stonecutter/loom/cartography table, at skill
+  # level 1.
+  base-bonus-chance: 0.01
+  # Added per skill level above 1.
+  bonus-chance-per-level: 0.003
